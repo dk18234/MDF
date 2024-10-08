@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Product - MDF Room</title>
+  <link rel="stylesheet" href="src/styles/styles.css">
+</head>
+<body>
+  <div class="logo-container">
+    <img src="src/images/logo_white_413.png" alt="Logo" class="logo">
+  </div>
+  <div class="container">
+    <h1>New Product</h1>
+    <form id="newProductForm">
+      <label for="productName">Product Name:</label>
+      <select id="productName" name="productName" required>
+        <option value="">Select Product</option>
+        <option value="cards">Cards</option>
+        <option value="cables">Cables</option>
+        <option value="drives">Drives</option>
+        <option value="cmosBatteries">CMOS Batteries</option>
+        <option value="ramDimm">RAM DIMM Sticks</option>
+      </select>
+       
+      <!-- Sub-options for Drives -->
+      <div id="driveOptions" style="display: none;">
+        <label for="driveType">Drive Type:</label>
+        <select id="driveType" name="driveType">
+          <option value="">Select Drive Type</option>
+          <option value="hdd">HDD</option>
+          <option value="ssd">SSD</option>
+        </select>
+      </div>
+
+      <!-- HDD Options -->
+      <div id="hddOptions" style="display: none;">
+        <label for="hddType">HDD Type:</label>
+        <select id="hddType" name="hddType">
+          <option value="sata">SATA</option>
+          <option value="nlsas">NLSAS</option>
+          <option value="10k">10k RPM SAS</option>
+          <option value="15k">15k RPM SAS</option>
+        </select>
+
+        <label for="formFactor">Form Factor:</label>
+        <select id="formFactor" name="formFactor">
+          <option value="2.5">2.5 inch</option>
+          <option value="3.5">3.5 inch</option>
+        </select>
+
+        <div id="hddCapacityOptions" style="display: none;">
+          <label for="hddCapacity">Capacity:</label>
+          <select id="hddCapacity" name="hddCapacity"></select>
+        </div>
+      </div>
+
+      <!-- SSD Options -->
+      <div id="ssdOptions" style="display: none;">
+        <label for="ssdType">SSD Type:</label>
+        <select id="ssdType" name="ssdType">
+          <option value="sata">SATA</option>
+          <option value="vsas">VSAS</option>
+          <option value="sas">SAS</option>
+          <option value="m2">M.2</option>
+          <option value="nvme">NVMe</option>
+        </select>
+
+        <label for="ssdCapacity">SSD Capacity:</label>
+        <select id="ssdCapacity" name="ssdCapacity">
+          <option value="120GB">120GB</option>
+          <option value="200GB">200GB</option>
+          <option value="240GB">240GB</option>
+          <option value="400GB">400GB</option>
+          <option value="480GB">480GB</option>
+          <option value="800GB">800GB</option>
+          <option value="960GB">960GB</option>
+          <option value="1.6TB">1.6 TB</option>
+          <option value="1.92TB">1.92 TB</option>
+          <option value="3.2TB">3.2 TB</option>
+          <option value="3.84TB">3.84 TB</option>
+          <option value="6.4TB">6.4 TB</option>
+          <option value="7.68TB">7.68 TB</option>
+          <option value="15.36TB">15.36 TB</option>
+          <option value="30.72TB">30.72 TB</option>
+          <option value="61.44TB">61.44 TB</option>
+          <option value="100TB">100 TB</option>
+        </select>
+      </div>
+
+      <!-- Sub-options for Cards -->
+      <div id="cardOptions" style="display: none;">
+        <label for="cardType">Card Type:</label>
+        <select id="cardType" name="cardType">
+          <option value="">Select Card Type</option>
+          <option value="network">Network</option>
+          <option value="raid" disabled>RAID</option>
+          <option value="boss">BOSS</option>
+        </select>
+      </div>
+
+      <!-- Network Card Options -->
+      <div id="networkOptions" style="display: none;">
+        <label for="networkType">Network Type:</label>
+        <select id="networkType" name="networkType">
+          <option value="">Select Network Type</option>
+          <option value="pcie">PCIe</option>
+          <option value="ndc">NDC</option>
+        </select>
+      </div>
+
+      <!-- PCIe Options -->
+      <div id="pcieOptions" style="display: none;">
+        <label for="pcieCapacity">PCIe Capacity:</label>
+        <select id="pcieCapacity" name="pcieCapacity">
+          <option value="gigi">GigE</option>
+          <option value="25gig">25 Gig</option>
+          <option value="10gig">10 Gig</option>
+          <option value="ib">IB</option>
+        </select>
+      </div>
+
+      <!-- Port options for PCIe GigE, 25 Gig, 10 Gig -->
+      <div id="pciePortOptions" style="display: none;">
+        <label for="pciePortType">Port Type:</label>
+        <select id="pciePortType" name="pciePortType">
+          <option value="single">Single Port</option>
+          <option value="dual">Dual Port</option>
+          <option value="quad">Quad Port</option>
+        </select>
+      </div>
+
+      <!-- Infiniband (IB) options -->
+      <div id="ibOptions" style="display: none;">
+        <label for="ibSpeed">Speed:</label>
+        <select id="ibSpeed" name="ibSpeed">
+          <option value="fdr">FDR</option>
+          <option value="hdr">HDR</option>
+        </select>
+
+        <label for="ibPortType">Port Type:</label>
+        <select id="ibPortType" name="ibPortType">
+          <option value="single">Single Port</option>
+          <option value="dual">Dual Port</option>
+        </select>
+      </div>
+
+      <!-- NDC Options -->
+      <div id="ndcOptions" style="display: none;">
+        <label for="ndcCapacity">NDC Capacity:</label>
+        <select id="ndcCapacity" name="ndcCapacity">
+          <option value="gigi">GigE</option>
+          <option value="25gig">25 Gig</option>
+          <option value="10gig">10 Gig</option>
+        </select>
+
+        <label for="ndcPortType">Port Type:</label>
+        <select id="ndcPortType" name="ndcPortType">
+          <option value="single">Single Port</option>
+          <option value="dual">Dual Port</option>
+          <option value="quad">Quad Port</option>
+        </select>
+      </div>
+
+      <!-- Options for RAM DIMM sticks -->
+      <div id="ramOptions" style="display: none;">
+        <label for="ramType">RAM Type:</label>
+        <select id="ramType" name="ramType">
+          <option value="rdimm">RDIMM</option>
+          <option value="lrdimm">LRDIMM</option>
+          <option value="hbm">HBM/HBMe</option>
+          <option value="cxl">CXL-attached</option>
+        </select>
+
+        <label for="ramGeneration">Generation:</label>
+        <select id="ramGeneration" name="ramGeneration">
+          <option value="ddr3">DDR3</option>
+          <option value="ddr4">DDR4</option>
+          <option value="ddr5">DDR5</option>
+          <option value="mcr">MCR</option>
+          <option value="cxl">CXL-attached</option>
+        </select>
+
+        <label for="ramSpeed">RAM Speed:</label>
+        <select id="ramSpeed" name="ramSpeed">
+          <option value="1600">1600 MT/s</option>
+          <option value="1866">1866 MT/s</option>
+          <option value="2133">2133 MT/s</option>
+          <option value="2400">2400 MT/s</option>
+          <option value="2666">2666 MT/s</option>
+          <option value="3200">3200 MT/s</option>
+          <option value="4800">4800 MT/s</option>
+          <option value="5600">5600 MT/s</option>
+          <option value="8800">8800 MT/s</option>
+        </select>
+
+        <label for="ramCapacity">RAM Capacity:</label>
+        <select id="ramCapacity" name="ramCapacity">
+          <option value="4GB">4GB</option>
+          <option value="8GB">8GB</option>
+          <option value="16GB">16GB</option>
+          <option value="32GB">32GB</option>
+          <option value="64GB">64GB</option>
+          <option value="96GB">96GB</option>
+          <option value="128GB">128GB</option>
+          <option value="256GB">256GB</option>
+          <option value="512GB">512GB</option>
+        </select>
+
+        <label for="ramCapacity">RAM Capacity:</label>
+        <select id="ramCapacity" name="ramCapacity">
+          <option value="4GB">4GB</option>
+          <option value="8GB">8GB</option>
+          <option value="16GB">16GB</option>
+          <option value="32GB">32GB</option>
+          <option value="64GB">64GB</option>
+          <option value="96GB">96GB</option>
+          <option value="128GB">128GB</option>
+          <option value="256GB">256GB</option>
+          <option value="512GB">512GB</option>
+        </select>
+
+
+      </div>
+
+      <label for="productQuantity">Quantity:</label>
+      <input type="number" id="productQuantity" name="productQuantity" required>
+
+      <button type="submit">Add Product</button>
+    </form>
+  </div>
+
+  <script>
+    const productName = document.getElementById('productName');
+    const driveOptions = document.getElementById('driveOptions');
+    const driveType = document.getElementById('driveType');
+    const hddOptions = document.getElementById('hddOptions');
+    const ssdOptions = document.getElementById('ssdOptions');
+    const hddType = document.getElementById('hddType');
+    const formFactor = document.getElementById('formFactor');
+    const hddCapacityOptions = document.getElementById('hddCapacityOptions');
+    const hddCapacity = document.getElementById('hddCapacity');
+    const cardOptions = document.getElementById('cardOptions');
+    const cardType = document.getElementById('cardType');
+    const networkOptions = document.getElementById('networkOptions');
+    const pcieOptions = document.getElementById('pcieOptions');
+    const pcieCapacity = document.getElementById('pcieCapacity');
+    const pciePortOptions = document.getElementById('pciePortOptions');
+    const ibOptions = document.getElementById('ibOptions');
+    const ndcOptions = document.getElementById('ndcOptions');
+    const ramOptions = document.getElementById('ramOptions');
+
+    // Show card options if 'cards' is selected
+    productName.addEventListener('change', function() {
+      if (this.value === 'cards') {
+        cardOptions.style.display = 'block';
+        ramOptions.style.display = 'none';
+      } else if (this.value === 'ramDimm') {
+        cardOptions.style.display = 'none';
+        ramOptions.style.display = 'block';
+      } else {
+        cardOptions.style.display = 'none';
+        ramOptions.style.display = 'none';
+      }
+    });
+
+    // Show Network options for network cards, and respective sub-options based on type
+    cardType.addEventListener('change', function() {
+      if (this.value === 'network') {
+        networkOptions.style.display = 'block';
+        pcieOptions.style.display = 'none';
+        ibOptions.style.display = 'none';
+        ndcOptions.style.display = 'none';
+      } else {
+        networkOptions.style.display = 'none';
+        pcieOptions.style.display = 'none';
+        ibOptions.style.display = 'none';
+        ndcOptions.style.display = 'none';
+      }
+    });
+
+    // Show PCIe, IB, or NDC options based on network type
+    networkType.addEventListener('change', function() {
+      if (this.value === 'pcie') {
+        pcieOptions.style.display = 'block';
+        ndcOptions.style.display = 'none';
+        ibOptions.style.display = 'none';
+      } else if (this.value === 'ndc') {
+        ndcOptions.style.display = 'block';
+        pcieOptions.style.display = 'none';
+        ibOptions.style.display = 'none';
+      }
+    });
+
+    // Show additional options for PCIe cards based on capacity
+    pcieCapacity.addEventListener('change', function() {
+      if (['gigi', '25gig', '10gig'].includes(this.value)) {
+        pciePortOptions.style.display = 'block';
+      } else if (this.value === 'ib') {
+        ibOptions.style.display = 'block';
+      }
+    });
+
+    // Show drive options if 'drives' is selected
+    productName.addEventListener('change', function() {
+      if (this.value === 'drives') {
+        driveOptions.style.display = 'block';
+        hddOptions.style.display = 'none';
+        ssdOptions.style.display = 'none';
+      } else {
+        driveOptions.style.display = 'none';
+        hddOptions.style.display = 'none';
+        ssdOptions.style.display = 'none';
+      }
+    });
+
+    // Show HDD or SSD options based on drive type
+    driveType.addEventListener('change', function() {
+      if (this.value === 'hdd') {
+        hddOptions.style.display = 'block';
+        ssdOptions.style.display = 'none';
+      } else if (this.value === 'ssd') {
+        hddOptions.style.display = 'none';
+        ssdOptions.style.display = 'block';
+      } else {
+        hddOptions.style.display = 'none';
+        ssdOptions.style.display = 'none';
+      }
+    });
+
+    // Show capacities based on HDD type and form factor
+    formFactor.addEventListener('change', function() {
+      let capacities = [];
+      const hddTypeValue = hddType.value;
+
+      if (hddTypeValue === 'sata' || hddTypeValue === 'nlsas') {
+        if (this.value === '3.5') {
+          capacities = ['1 TB', '2 TB', '4 TB', '6 TB', '8 TB', '10 TB', '12 TB', '14 TB', '16 TB', '18 TB', '20 TB', '22 TB', '24 TB', '30 TB (coming)', '32 TB (coming)'];
+        } else if (this.value === '2.5') {
+          capacities = ['1 TB', '2 TB'];
+        }
+      } else if (hddTypeValue === '10k' || hddTypeValue === '15k') {
+        if (this.value === '2.5') {
+          capacities = ['300 GB', '600 GB', '1.2 TB', '2.4 TB'];
+        }
+      }
+
+      // Populate HDD capacities
+      hddCapacity.innerHTML = '';
+      capacities.forEach(capacity => {
+        const option = document.createElement('option');
+        option.value = capacity;
+        option.textContent = capacity;
+        hddCapacity.appendChild(option);
+      });
+
+      hddCapacityOptions.style.display = capacities.length > 0 ? 'block' : 'none';
+    });
+  </script>
+</body>
+</html>
